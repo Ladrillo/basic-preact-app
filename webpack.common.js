@@ -1,12 +1,16 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-module.exports = {
+const distFolder = new URL(
+  'dist',
+  import.meta.url
+)
+
+export default {
   entry: './src/index.js',
   output: {
     filename: 'index.js',
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist'),
+    path: distFolder.pathname,
   },
   devtool: 'source-map',
   plugins: [
